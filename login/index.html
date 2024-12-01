@@ -1,1 +1,201 @@
-create folder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* background:aqua; */
+            box-sizing: border-box;
+           font-family: 'Times New Roman';
+            /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:500px;
+            background-image: url(https://us.123rf.com/450wm/zarahmad/zarahmad2410/zarahmad241013711/236877478-beautiful-summer-landscape-in-the-mountains-ukraine-carpathians.jpg?ver=6);
+           background-size: cover;
+            background-position: center;
+
+        }
+        .froms{
+            background-color:transparent;
+            border: 3px solid rgba(255, 0, 0, 0.3);
+            border-radius: 16px;
+            backdrop-filter: blur(0px);
+            padding: 30px;
+            color: white;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.35);
+        }
+        .title{
+          font-size: 40px;
+          margin-bottom: 40px;
+        }
+        .box{
+            margin: 20px 0;
+            position: relative;
+        }
+        .box input{
+            width:320px ;
+            background-color:#ffffff;
+            border: none;
+            padding: 12px 12px 12px 45px;
+            border-radius: 99px;
+            outline: 3px solid transparent;
+            transition: 0.3s;
+            font-size: 17px;
+            color: #000000;
+            font-weight: 600;
+        }
+        .box input::placeholder{
+            color: rgb(0, 0, 0);
+            font-size: 17px;
+            font-weight: 500;
+        }
+        .box input:focus{
+            outline: 3px solid rgba(255, 0, 0, 0.3);
+
+        }
+        .box input::-ms-reveal{
+            filter: invert(100%);
+        }
+        .box i{
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: sandybrown;
+        }
+        .remember{
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            font-size: 15px;
+
+        }
+        .remember label{
+            display: flex;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .remember input{
+            color: white;
+            cursor: pointer;
+        }
+        .remember a{
+            color: white;
+            text-decoration: none; 
+        }
+        .remember a:hover{
+            text-decoration: underline;
+        }
+        .button{
+            width: 100%;
+            padding: 10px 0;
+            background:hsl(240, 100%, 50%);
+            border: none;
+            border-radius: 99px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 30ms;
+        }
+        .button:hover{
+            background-color: rgb(66, 66, 255);
+        }
+        .last{
+            margin-top: 15px;
+            font-size: 15px;
+        }
+        .last a{
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .last a:hover {
+            text-decoration: underline;
+
+        }
+
+ </style>
+</head>
+<body>
+   <form action="./result.html" class="froms" name="from1" onsubmit="return login()">
+    <h1 class="title">Login</h1>
+    <div class="box">
+        <i class="fa-solid fa-image-portrait"></i>
+        <input type="text" name="" id="uname" placeholder="USER NAME">
+    </div>
+    <div class="box">
+        <i class="fa-duotone fa-solid fa-key"></i>
+        <input type="password"placeholder="PASSWORD" id="reme">
+    </div>
+<div class="remember">
+    <label for="rem">
+        <input type="checkbox" name="r1" id="rem" onclick="nam()">show password
+    </label>
+        <a href=".//forget.html" target="_blank">Forget password?</a>
+</div>
+    <button class="button">Login
+    </button>
+    <p class="last">
+        Don't have an account?
+    <a href="./register.html" target="_blank">Register</a></p>
+
+</form>
+ <script>
+    function nam(){
+  let showpwd1=document.getElementById("reme")
+  if(showpwd1.type ==="password"){
+    showpwd1.type ="text"
+  }
+  else{
+    showpwd1.type ="password"
+  }
+    }
+    function login(){
+        let user = document.getElementById("uname").value;
+        let pass = document.getElementById("reme").value;
+
+        if(user ==="")
+        {
+            alert("please enter your username");
+            document.from1.uname.focus();
+            return false;
+        }
+        if (!isNaN(user)){
+            alert("enter characters only");
+            document.from1.uname.focus();
+            document.from1.uname.value = "";
+            return false ;
+        }
+        if(pass ===""){
+            alert("please enter your password");
+            document.from1.reme.focus();
+            document.from1.reme.value="";
+            return false;
+
+        }
+        if(pass.length<8){
+            alert("less than 8 digits password is not accepted");
+            document.from1.reme.focus();
+            document.from1.reme.value="";
+            return false;
+        }
+
+    }
+     </script>
+</body>
+</html>
