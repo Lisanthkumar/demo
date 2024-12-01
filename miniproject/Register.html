@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman';
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+        background-image: url(https://www.pictureframesexpress.co.uk/blog/wp-content/uploads/2019/08/nature-landscape.jpg);
+        background-size: cover;
+        background-position: center;
+      }
+      .fromss {
+        background-color: transparent;
+        border: 3px solid black;
+        border-radius: 16px;
+        backdrop-filter: blur(2px);
+        padding: 30px;
+        color: white;
+        text-align: center;
+        width: 400px;
+        box-shadow: 0px 0px 20px 10px rgb(0, 0, 0, 0.35);
+      }
+      .title {
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+      .box {
+        margin: 10px 0;
+        position: relative;
+      }
+      .box input {
+        width: 350px;
+        background-color: none;
+        border: none;
+        border-radius: 99px;
+        padding: 12px 12px 12px 45px;
+        outline: 3px solid transparent;
+        transition: 30ms;
+        font-size: 17px;
+        font-weight: 600;
+        color: #000000;
+      }
+      .box input::placeholder {
+        color: rgb(0, 0, 0);
+        font-size: 17px;
+        font-weight: 500;
+      }
+      .box input:focus {
+        outline: 3px solid gray;
+      }
+      .box input::-ms-reveal {
+        filter: invert(100%);
+      }
+      .box i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #98fe62;
+      }
+      .butt {
+        width: 50%;
+        padding: 10px 0;
+        border: none;
+        background-color: #0000a7c6;
+        border-radius: 99px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 30ms;
+      }
+      .butt a {
+        color: white;
+        text-decoration: none;
+         /* transition:5s ;  */
+      }
+      .butt:hover {
+        background-color: rgb(126, 126, 255);
+      }
+      #eyee {
+        position: absolute;
+        left: 90%;
+        top: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="fromss" action="" name="form1" onsubmit="return correct()">
+      <h1 class="title">PASSWORD</h1>
+      <div class="box">
+        <i class="fa-solid fa-unlock"></i>
+        <input id="new" type="password"  placeholder="NEW PASSWORD" />
+        <i id="eyee" class="fa-solid fa-eye" onclick="eye()"></i>
+      </div>
+      <div class="box">
+        <i class="fa-solid fa-lock-open"></i>
+        <input
+          id="confirm"
+          type="password"
+          placeholder="CONFIRM PASSWORD"
+        />
+      </div>
+      <button class="butt">
+        <a href="./login.html">CONFIRM</a>
+      </button>
+    </form>
+    <script>
+      function eye() {
+        let viewer = document.getElementById("new");
+        let eyer = document.getElementById("eyee");
+
+        if (viewer.type === "password") {
+          viewer.type = "text";
+          eyer.classList.remove("fa-eye");
+          eyer.classList.add("fa-eye-slash");
+        } else {
+          viewer.type = "password";
+          eyer.classList.remove("fa-eye-slash");
+          eyer.classList.add("fa-eye");
+        }
+      }
+      function correct() {
+        let pass = document.getElementById("new");
+        let cpass = document.getElementById("confirm");
+        if (pass.value.length < 8) {
+          alert("please enter greater then 8 digit");
+          document.form1.new.focus();
+          document.form1.new.value = "";
+          return false;
+        }
+        if (pass.value.length > 15) {
+          alert("please enter less then 15 digit");
+          document.form1.confirm.value = "";
+          document.form1.confirm.focus();
+          return false;
+        }
+
+        if (pass.value != cpass.value) {
+          alert("password are not same please try again");
+          document.form1.confirm.focus();
+          document.form1.confirm.value = "";
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
