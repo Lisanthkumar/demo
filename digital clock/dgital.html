@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="digital.css" />
+  </head>
+  <body onload="setInterval (displayDateAndTime , 1000)">
+    <div class="digital-clock">
+      <div class="design"></div>
+      <div class="day-container">
+        <span class="day">--------</span>
+      </div>
+      <div class="timer-container">
+        <span class="hours">00</span>
+        <span class="colon">:</span>
+        <span class="min">00</span>
+        <span class="colon">:</span>
+        <span class="sec">00</span>
+        <span class="ampm"></span>
+      </div>
+      <div class="date-container">
+        <span class="title">Date : </span>
+        <span class="date">00</span> / <span class="month">00</span> /
+        <span class="year">0000</span>
+      </div>
+    </div>
+    <script src="digital.js"></script>
+  </body>
+</html>
